@@ -26,3 +26,8 @@ npx react-native init AppName --template https://github.com/wezard-it/react-nati
 [npmjs-com]: https://www.npmjs.com/package/@wezard/react-native-react-navigation-template
 [standard-wezard-badge]: https://img.shields.io/badge/sdk-wezard-F26D50.svg
 [standard-wezard]: https://github.com/wezard-it/react-native-boilerplate-react-navigation
+
+## Usefull Infos
+
+### Scripts
+This template contains some handfull scripts
