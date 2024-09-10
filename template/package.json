@@ -26,7 +26,8 @@
     "watchman:clean": "watchman watch-del-all",
     "pods": "npx pod-install",
     "postinstall": "yarn pods && yarn upgrade:android",
-    "build:android": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle"
+    "build:android": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle",
+    "translations:sort": "node ./scripts/sort_translations.js"
   },
   "keywords": [
     "react-native",
@@ -63,7 +64,7 @@
     "patch-package": "^6.5.1",
     "pubsub-js": "^1.9.4",
     "react": "18.3.1",
-    "react-i18next": "^12.1.1",
+    "react-i18next": "^15.0.1",
     "react-native": "0.75.2",
     "react-native-config": "^1.5.1",
     "react-native-device-info": "^10.3.0",
@@ -73,7 +74,7 @@
     "react-native-haptic-feedback": "^1.14.0",
     "react-native-image-picker": "^5.0.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
-    "react-native-localize": "^2.2.4",
+    "react-native-localize": "^3.2.1",
     "react-native-modal": "^13.0.1",
     "react-native-navigation-hooks": "^6.3.0",
     "react-native-pager-view": "^6.1.2",
@@ -109,7 +110,6 @@
     "@tsconfig/react-native": "^3.0.0",
     "@types/pubsub-js": "^1.8.3",
     "@types/react": "^18.2.6",
-    "@types/react-native": "^0.70.6",
     "@types/react-native-vector-icons": "^6.4.12",
     "@types/react-test-renderer": "^18.0.0",
     "@types/redux-persist": "^4.3.1",
