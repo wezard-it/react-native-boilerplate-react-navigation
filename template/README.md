@@ -35,7 +35,7 @@
 - Prettier
 
 ## Useful links
-- wix/react-native-navigation: https://wix.github.io/react-native-navigation/docs/before-you-start/
+- react-navigation: https://reactnavigation.org/
 - react-native-reanimated: https://docs.swmansion.com/react-native-reanimated/
 - gorhom/react-native-bottom-sheet: https://gorhom.github.io/react-native-bottom-sheet/
 
