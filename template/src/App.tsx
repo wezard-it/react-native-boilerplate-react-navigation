@@ -1,14 +1,17 @@
 import * as React from 'react'
-import NavigationProvider from 'providers/navigation'
-import StoreProvider from 'providers/store'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import NavigationProvider from 'providers/navigation'
+import NetworkProvider from 'providers/network'
+import QueryProvider from 'providers/query'
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
     <SafeAreaProvider>
-      <StoreProvider>
-        <NavigationProvider />
-      </StoreProvider>
+      <QueryProvider>
+        <NetworkProvider>
+          <NavigationProvider />
+        </NetworkProvider>
+      </QueryProvider>
     </SafeAreaProvider>
   )
 }

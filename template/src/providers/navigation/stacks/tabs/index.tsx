@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Tab = createBottomTabNavigator<TabsParamList>()
 
-const TabsNavigator: React.FC = () => {
+const TabsNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
