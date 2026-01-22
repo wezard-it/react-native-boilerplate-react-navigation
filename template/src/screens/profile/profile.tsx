@@ -1,26 +1,55 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ActivityIndicator } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { Button } from '@wezard/react-native-ylem'
-import { useDispatch } from 'react-redux'
-import { logout } from 'store/modules/auth/auth.actions'
+import { useQuery } from '@tanstack/react-query'
+import { useAuth } from 'hooks/useAuth'
 import Style from './profile.style'
 
 type Props = NativeStackScreenProps<ProfileStackParamList, 'Profile'>
 
-const ProfileScreen: React.FC<Props> = () => {
-  const dispatch = useDispatch()
+// Example: Fetch user profile
+const useProfile = () => {
+  return useQuery({
+    queryKey: ['profile'],
+    queryFn: async () => {
+      // Replace with your actual API call
+      const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+      if (!response.ok) throw new Error('Failed to fetch profile')
+      return response.json()
+    },
+  })
+}
+
+const ProfileScreen = ({ }: Props) => {
+  const { data: profile, isLoading } = useProfile()
+  const { logout } = useAuth()
 
   const handleLogout = React.useCallback(() => {
-    dispatch(logout())
-  }, [dispatch])
+    logout()
+  }, [logout])
+
+  if (isLoading) {
+    return (
+      <View style={Style.container}>
+        <ActivityIndicator size="large" />
+      </View>
+    )
+  }
 
   return (
     <View style={Style.container}>
       <View style={Style.body}>
-        <Text>Profile</Text>
+        <Text style={Style.title}>Profile</Text>
+        {profile && (
+          <>
+            <Text style={Style.profileText}>Name: {profile.name}</Text>
+            <Text style={Style.profileText}>Email: {profile.email}</Text>
+            <Text style={Style.profileText}>Phone: {profile.phone}</Text>
+          </>
+        )}
+        <Button title="Logout" onPress={handleLogout} />
       </View>
-      <Button title="logout" onPress={handleLogout} />
     </View>
   )
 }

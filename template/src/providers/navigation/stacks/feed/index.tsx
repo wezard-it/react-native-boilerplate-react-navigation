@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator<FeedStackParamList>()
 
-const FeedStackNavigator: React.FC = () => {
+const FeedStackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen

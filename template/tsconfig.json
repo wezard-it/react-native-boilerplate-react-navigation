@@ -5,11 +5,9 @@
     "paths": {
       "assets": ["./assets"],
       "components": ["./components"],
-      "containers": ["./containers"],
-      "hooks": ["./components/hooks"],
+      "hooks": ["./hooks"],
       "providers": ["./providers"],
       "screens": ["./screens"],
-      "store": ["./store"],
       "types": ["./types"],
       "utils": ["./utils"]
     },
@@ -24,5 +22,4 @@
     "metro.config.js",
     "jest.config.js"
   ],
-  "files": ["./node_modules/redux-persist/types/integration/react.d.ts"]
 }

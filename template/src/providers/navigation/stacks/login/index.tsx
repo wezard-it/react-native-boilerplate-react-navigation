@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator<LoginStackParamList>()
 
-const LoginStack: React.FC = () => {
+const LoginStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen

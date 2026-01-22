@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as Yup from 'yup'
+import { ObjectShape } from 'yup/lib/object'
 
 // TODO: this file's content needs a detailed check
 
@@ -45,7 +45,9 @@ const getYupType = (
   return yupChain[type](error)
 }
 
-const createValidationSchema = (config: ValidationSchemaProps): Yup.ObjectSchema<any, any> => {
+const createValidationSchema = <T extends ObjectShape>(
+  config: ValidationSchemaProps,
+): Yup.ObjectSchema<T> => {
   const configMap = Object.entries(config).reduce((acc, [key, props]) => {
     const innerSchema = Object.entries(
       props.rules as { error: string; value: string; key: string }[],
@@ -66,7 +68,8 @@ const createValidationSchema = (config: ValidationSchemaProps): Yup.ObjectSchema
     return { ...acc, [key]: innerSchema }
   }, {})
 
-  return Yup.object().shape(configMap)
+
+  return Yup.object().shape(configMap) as Yup.ObjectSchema<T>
 }
 
 export default createValidationSchema

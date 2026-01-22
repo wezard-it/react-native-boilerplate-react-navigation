@@ -1,11 +1,13 @@
 import i18next from 'i18next'
-import { noop } from 'lodash'
-import moment from 'moment'
 import { initReactI18next } from 'react-i18next'
 import { getLocales } from 'react-native-localize'
+import { setDefaultOptions } from 'date-fns'
+import { it, enUS } from 'date-fns/locale'
 import en from '../assets/locales/en.json'
 import it from '../assets/locales/it.json'
-import 'moment/locale/it' // without this, moment.locale doesn't work
+
+// Simple noop function
+const noop = () => {}
 
 const languageDetector = {
   type: 'languageDetector',
@@ -25,6 +27,14 @@ i18next.use(languageDetector).use(initReactI18next).init({
   resources: { en, it },
 })
 
-moment.locale(i18next.language)
+// Set date-fns locale based on i18n language
+const dateFnsLocales = {
+  it,
+  en: enUS,
+}
+
+setDefaultOptions({
+  locale: dateFnsLocales[i18next.language] || enUS,
+})
 
 export default i18next

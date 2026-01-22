@@ -23,11 +23,9 @@ module.exports = {
         alias: {
           assets: './src/assets',
           components: './src/components',
-          containers: './src/containers',
-          hooks: './src/components/hooks',
+          hooks: './src/hooks',
           providers: './src/providers',
           screens: './src/screens',
-          store: './src/store',
           types: './src/types',
           utils: './src/utils',
         },
